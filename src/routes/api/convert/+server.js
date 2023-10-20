@@ -1,7 +1,9 @@
-// @ts-nocheck
 import { json } from '@sveltejs/kit';
-import syllableMap from '$lib/transformed_syllables.json';
+// import syllableMap from '$lib/transformed_syllables.json';
 import nlp from 'compromise';
+
+let syllableMap = {};
+
 
 
 const cmuToKairenMap = {
@@ -241,7 +243,21 @@ function convertToKairen(words) {
 	});
 }
 
-export async function POST({ request }) {
+export async function POST({ request, locals }) {
+
+
+	// On module load or in an appropriate lifecycle hook:
+	// await fetch('https://gist.githubusercontent.com/kimeiga/0045ed27442d66eb62846d79d0d3d254/raw/transformed_syllables.json')
+	// 	.then(response => response.json())
+	// 	.then(data => {
+	// 		syllableMap = data;
+	// 		console.log("syllableMap loaded")
+	// 	})
+	// 	.catch(error => {
+	// 		console.error("Error fetching syllableMap:", error);
+	// 	});
+
+	syllableMap = locals.syllableMap;
 
 	const { sentence } = await request.json();
 
@@ -251,8 +267,7 @@ export async function POST({ request }) {
 	//		transliterated: now transliterated to kairen phonology using the mapping above 
 	//		reversed: now reversed benignly (no exceptions)
 	//		rules applied: reversed word with rules applied (plural nouns, singular verbs, etc)
-	//		final: final word in kairen
-	// }]
+	//		final: final word in kairen }]
 	// but one way of doing the set words is, at the transliteration stage, if the word matches one in the set words,
 	// set the "final" attribute on the word early to that set word, and then the future stages will just skip over that word.
 	// my only question is how do we handle punctuation, since when you split on spaces, the punctuation is included in the word

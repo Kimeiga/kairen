@@ -122,6 +122,8 @@
 		<!-- <p>Eye -> ao</p> -->
 	</fieldset>
 	<!-- <p>Set Words:</p> -->
+	<br />
+	<small><a href="https://www.github.com/kimeiga/kairen" target="_blank">Github</a></small>
 </main>
 
 <style>

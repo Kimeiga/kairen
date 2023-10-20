@@ -26,7 +26,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"compromise": "^14.10.0",
-		"word-syllable-map": "github:Kimeiga/word-syllable-map"
+		"@sveltejs/adapter-vercel": "^3.0.3",
+		"compromise": "^14.10.0"
 	}
 }
