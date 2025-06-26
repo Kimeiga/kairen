@@ -45,7 +45,7 @@
 
 <main>
 	<h1>Kairen</h1>
-	<p>Haki's secret language where you reverse every syllable of each English word.</p>
+	<p>Haki's secret language using character swapping rules.</p>
 	<div class="input">
 		<input
 			type="text"
@@ -72,15 +72,15 @@
 					<span>{word.transliteration}</span>
 				{/each}
 			</div>
-			<span class="row-label">Transliterated</span>
+			<span class="row-label">Vowels Normalized</span>
 		</div>
 		<div class="row">
 			<div class="words">
 				{#each kairen as word}
-					<span>{word.reversed}</span>
+					<span>{word.swapped}</span>
 				{/each}
 			</div>
-			<span class="row-label">Reversed</span>
+			<span class="row-label">Characters Swapped</span>
 		</div>
 		<div class="row">
 			<div class="words">
@@ -104,11 +104,30 @@
 	<!-- <p>Added Rules:</p> -->
 
 	<fieldset>
-		<legend>Added Rules</legend>
+		<legend>Character Swapping Rules</legend>
 		<ul>
-			<li>-'h' -> -'hu'</li>
-			<li>plural -s stays final (kids -> diks not zdik)</li>
-			<li>-s from singular verbs removed (runs -> nar not znar)</li>
+			<li>k ↔ ch</li>
+			<li>g ↔ j</li>
+			<li>t ↔ p</li>
+			<li>d ↔ b</li>
+			<li>s ↔ f</li>
+			<li>z ↔ v</li>
+			<li>sh ↔ th</li>
+			<li>zh ↔ dh</li>
+			<li>m ↔ n</li>
+			<li>r ↔ l</li>
+			<li>y ↔ w</li>
+			<li>ng ↔ mb</li>
+		</ul>
+	</fieldset>
+
+	<fieldset>
+		<legend>Additional Rules</legend>
+		<ul>
+			<li>-h → -hu</li>
+			<li>plural -s stays final</li>
+			<li>-s from singular verbs removed</li>
+			<li>vowels normalized to a, e, i, o, u (but not changed)</li>
 		</ul>
 	</fieldset>
 

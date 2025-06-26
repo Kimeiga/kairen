@@ -16,7 +16,7 @@ async function fetchSyllableMap() {
 fetchSyllableMap();
 
 export function handle({ event, resolve }) {
-	// You can pass the syllableMap to the session or context if needed
+	// Pass the syllableMap to the API routes
 	event.locals.syllableMap = syllableMap;
 
 	return resolve(event);
